@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
   final Box<Expense> expenseBox;
   final Box<double> totalExpensesBox;
 
-  MyApp({required this.expenseBox, required this.totalExpensesBox});
+  const MyApp({super.key, required this.expenseBox, required this.totalExpensesBox});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
           create: (context) => ExpenseCubit(expenseBox, totalExpensesBox),
         ),
       ],
-      child: MaterialApp(
+      child: const MaterialApp(
         debugShowCheckedModeBanner: false,
         home: HomeScreen(),
       ),

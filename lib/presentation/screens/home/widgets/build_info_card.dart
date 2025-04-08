@@ -28,7 +28,7 @@ Widget buildInfoCard(BuildContext context,
               Flexible(
                 child: Text(
                   title,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
@@ -37,10 +37,10 @@ Widget buildInfoCard(BuildContext context,
                   overflow: TextOverflow.visible,
                 ),
               ),
-              Spacer(),
+              const Spacer(),
               Text(
                 'Rp ${formatNominal(amount)}',
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 18,
                   fontWeight: FontWeight.w700,

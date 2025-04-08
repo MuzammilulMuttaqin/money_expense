@@ -11,11 +11,13 @@ import 'package:money_expense/shared/color_style.dart';
 import 'widgets/select_date.dart';
 
 class AddExpenseScreen extends StatefulWidget {
+  const AddExpenseScreen({super.key});
+
   @override
-  _AddExpenseScreenState createState() => _AddExpenseScreenState();
+  AddExpenseScreenState createState() => AddExpenseScreenState();
 }
 
-class _AddExpenseScreenState extends State<AddExpenseScreen> {
+class AddExpenseScreenState extends State<AddExpenseScreen> {
   final _formKey = GlobalKey<FormState>();
   String _name = '';
   String _category = 'Makanan';
@@ -42,7 +44,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
         leading: IconButton(
           icon: SvgPicture.asset(
             Assets.assetsIconBack,
-            color: Color(0xff4F4F4F),
+            color: const Color(0xff4F4F4F),
             height: 24.0,
             width: 24.0,
           ),
@@ -50,7 +52,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
             Navigator.of(context).pop();
           },
         ),
-        title: Text(
+        title: const Text(
           'Tambah Pengeluaran Baru',
           style: TextStyle(
             fontWeight: FontWeight.w700,
@@ -79,7 +81,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
                   return null;
                 },
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               TextFormField(
                 decoration: customInputDecoration(
                   labelText: '',
@@ -116,7 +118,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
                   });
                 },
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               GestureDetector(
                 onTap: () {
                   selectDate(
@@ -134,7 +136,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
                     decoration: customInputDecoration(
                         labelText: '',
                         suffixIconPath: Assets.assetsCalendar,
-                        iconColor: Color(0xffBDBDBD)),
+                        iconColor: const Color(0xffBDBDBD)),
                     controller: TextEditingController(text: formatDate(_date)),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -145,7 +147,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
                   ),
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               TextFormField(
                 controller: _amountController,
                 decoration: customInputDecoration(
@@ -155,14 +157,14 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
                 keyboardType: TextInputType.number,
                 inputFormatters: [ThousandsSeparatorInputFormatter()],
                 onChanged: (value) {
-                  final numericValue = value.replaceAll(RegExp(r'[^\d]'), '');
+                  final numericValue = value.replaceAll(RegExp(r'\D'), '');
                   setState(() {
                     _amount = double.tryParse(numericValue) ?? 0.0;
                   });
                 },
                 validator: (value) {
                   final numericValue =
-                      value?.replaceAll(RegExp(r'[^\d]'), '') ?? '';
+                      value?.replaceAll(RegExp(r'\D'), '') ?? '';
                   if (numericValue.isEmpty) {
                     return 'Nominal tidak boleh kosong';
                   }
@@ -172,21 +174,21 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
                   return null;
                 },
               ),
-              SizedBox(height: 32),
+              const SizedBox(height: 32),
               ElevatedButton(
                 onPressed: isFormValid ? _handleAddExpense : null,
-                child: Text(
+                style: customButtonStyle(isEnabled: isFormValid).copyWith(
+                  minimumSize:
+                      MaterialStateProperty.all(const Size(double.infinity, 56.0)),
+                  padding: MaterialStateProperty.all(
+                      const EdgeInsets.symmetric(vertical: 16.0)),
+                ),
+                child: const Text(
                   'Simpan',
                   style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w700,
                       color: Colors.white),
-                ),
-                style: customButtonStyle(isEnabled: isFormValid).copyWith(
-                  minimumSize:
-                      MaterialStateProperty.all(Size(double.infinity, 56.0)),
-                  padding: MaterialStateProperty.all(
-                      EdgeInsets.symmetric(vertical: 16.0)),
                 ),
               ),
             ],

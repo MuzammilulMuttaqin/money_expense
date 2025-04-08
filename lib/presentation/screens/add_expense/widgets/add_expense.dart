@@ -20,7 +20,7 @@ void addExpense({
   context.read<ExpenseCubit>().addExpense(expense);
 
   ScaffoldMessenger.of(context).showSnackBar(
-    SnackBar(content: Text('Pengeluaran berhasil ditambahkan')),
+    const SnackBar(content: Text('Pengeluaran berhasil ditambahkan')),
   );
 
   onSuccess();

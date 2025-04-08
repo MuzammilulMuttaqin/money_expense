@@ -13,8 +13,8 @@ void showCategoryModalBottomSheet(
     backgroundColor: Colors.transparent,
     builder: (context) {
       return Container(
-        padding: EdgeInsets.all(16.0),
-        decoration: BoxDecoration(
+        padding: const EdgeInsets.all(16.0),
+        decoration: const BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.vertical(top: Radius.circular(12.0)),
         ),
@@ -24,8 +24,8 @@ void showCategoryModalBottomSheet(
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 28.0),
+                const Padding(
+                  padding: EdgeInsets.only(left: 28.0),
                   child: Text(
                     'Pilih Kategori',
                     textAlign: TextAlign.left,
@@ -36,17 +36,17 @@ void showCategoryModalBottomSheet(
                     ),
                   ),
                 ),
-                Spacer(),
+                const Spacer(),
                 Padding(
                   padding: const EdgeInsets.only(right: 28.0),
                   child: IconButton(
-                    icon: Icon(Icons.close),
+                    icon: const Icon(Icons.close),
                     onPressed: () => Navigator.of(context).pop(),
                   ),
                 ),
               ],
             ),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             Expanded(
               child: GridView.count(
                 crossAxisCount: 3,

@@ -12,11 +12,13 @@ import 'widgets/get_category_color.dart';
 import 'widgets/get_category_icon.dart';
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  HomeScreenState createState() => HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class HomeScreenState extends State<HomeScreen> {
   bool _isLoading = true;
 
   @override
@@ -40,9 +42,9 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         toolbarHeight: 0,
       ),
-      backgroundColor: Color(0xffFFFFFF),
+      backgroundColor: const Color(0xffFFFFFF),
       body: _isLoading
-          ? Center(child: CircularProgressIndicator())
+          ? const Center(child: CircularProgressIndicator())
           : BlocBuilder<ExpenseCubit, ExpenseState>(
               builder: (context, state) {
                 if (state is ExpensesLoaded) {
@@ -56,16 +58,16 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          SizedBox(height: 10),
-                          Text(
+                          const SizedBox(height: 10),
+                          const Text(
                             'Halo, User!',
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w700,
                             ),
                           ),
-                          SizedBox(height: 4),
-                          Text(
+                          const SizedBox(height: 4),
+                          const Text(
                             'Jangan lupa catat keuanganmu setiap hari!',
                             style: TextStyle(
                               fontSize: 14,
@@ -73,7 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               fontWeight: FontWeight.w400,
                             ),
                           ),
-                          SizedBox(height: 20),
+                          const SizedBox(height: 20),
                           Row(
                             children: [
                               buildInfoCard(
@@ -81,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 title: 'Pengeluaranmu hari ini',
                                 color: Colors.blue,
                               ),
-                              SizedBox(width: 19),
+                              const SizedBox(width: 19),
                               buildInfoCard(
                                 context,
                                 title: 'Pengeluaranmu bulan ini',
@@ -89,16 +91,16 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ],
                           ),
-                          SizedBox(height: 20),
-                          Text(
+                          const SizedBox(height: 20),
+                          const Text(
                             'Pengeluaran berdasarkan kategori',
                             style: TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.w700,
                             ),
                           ),
-                          SizedBox(height: 10),
-                          Container(
+                          const SizedBox(height: 10),
+                          SizedBox(
                             height: 140,
                             child: SingleChildScrollView(
                               scrollDirection: Axis.horizontal,
@@ -118,38 +120,38 @@ class _HomeScreenState extends State<HomeScreen> {
                                         color,
                                       ),
                                     );
-                                  }).toList(),
+                                  }),
                                 ],
                               ),
                             ),
                           ),
-                          SizedBox(height: 20),
+                          const SizedBox(height: 20),
                           buildExpenseList(context, 'Hari ini', true),
-                          SizedBox(height: 16),
+                          const SizedBox(height: 16),
                           buildExpenseList(context, 'Kemarin', false),
                         ],
                       ),
                     ),
                   );
                 }
-                return Center(child: CircularProgressIndicator());
+                return const Center(child: CircularProgressIndicator());
               },
             ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => AddExpenseScreen()),
+            MaterialPageRoute(builder: (context) => const AddExpenseScreen()),
           ).then((_) {
             BlocProvider.of<ExpenseCubit>(context).loadExpenses();
           });
         },
-        backgroundColor: Color(0xff0A97B0),
-        child: Icon(
+        backgroundColor: const Color(0xff0A97B0),
+        shape: const CircleBorder(),
+        child: const Icon(
           Icons.add,
           color: Colors.white,
         ),
-        shape: CircleBorder(),
       ),
     );
   }

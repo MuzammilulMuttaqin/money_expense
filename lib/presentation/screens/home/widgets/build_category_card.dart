@@ -16,7 +16,7 @@ Widget buildCategoryCard(
           color: Colors.grey.withOpacity(0.5),
           spreadRadius: 1,
           blurRadius: 5,
-          offset: Offset(0, 3),
+          offset: const Offset(0, 3),
         ),
       ],
     ),
@@ -32,20 +32,20 @@ Widget buildCategoryCard(
               iconPath,
             ),
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.w400,
                 color: Color(0xff828282)),
             textAlign: TextAlign.start,
           ),
-          SizedBox(height: 4),
+          const SizedBox(height: 4),
           Text(
             formatNominal(amount),
             textAlign: TextAlign.start,
-            style: TextStyle(
+            style: const TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.w700,
                 color: Color(0xff333333)),

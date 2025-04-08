@@ -24,7 +24,7 @@ Widget buildCategoryItem(
             width: 24,
           ),
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         Text(
           category.name,
           style: TextStyle(

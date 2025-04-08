@@ -8,8 +8,8 @@ Widget buildExpenseShimmer() {
         baseColor: Colors.grey[300]!,
         highlightColor: Colors.grey[100]!,
         child: Container(
-          margin: EdgeInsets.symmetric(vertical: 4.0),
-          padding: EdgeInsets.all(12.0),
+          margin: const EdgeInsets.symmetric(vertical: 4.0),
+          padding: const EdgeInsets.all(12.0),
           decoration: BoxDecoration(
             color: Colors.grey[300],
             borderRadius: BorderRadius.circular(8.0),
@@ -23,7 +23,7 @@ Widget buildExpenseShimmer() {
                     backgroundColor: Colors.grey[300],
                     radius: 24,
                   ),
-                  SizedBox(width: 12),
+                  const SizedBox(width: 12),
                   Container(
                     width: 100,
                     height: 10,

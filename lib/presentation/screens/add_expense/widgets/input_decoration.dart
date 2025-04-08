@@ -54,7 +54,7 @@ InputDecoration customInputDecoration({
       borderSide: BorderSide(color: ColorStyle.grey),
       borderRadius: BorderRadius.circular(8.0),
     ),
-    contentPadding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
+    contentPadding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
   );
 }
 
